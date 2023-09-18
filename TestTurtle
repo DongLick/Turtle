@@ -1,0 +1,10 @@
+from turtle import *
+d = 100
+
+for i in range(18):
+    forward(d)
+    write(i)
+    backward(d)
+    left(10)
+    
+exitonclick()

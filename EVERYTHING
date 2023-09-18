@@ -1,0 +1,297 @@
+from turtle import*
+import random
+
+screensize(canvwidth=600, canvheight=400, bg='lightblue')
+
+speed(90)
+
+#le soleil                              #CHOSES A REGLER: 
+up()                                                     #-arbres: deuxieme type d'arbre + randomisation + definition
+goto(600, 400)                                           #-nuages: randomisation
+dot(70, 'yellow')
+right(180)
+down()
+width(7)
+color('yellow')
+for i in range(36):
+    forward(70)
+    backward(70)
+    left(10)
+
+#montagnes
+
+up()
+goto(-700, -500)
+right(120)
+width(7)
+color('dimgray')
+fillcolor('dimgray')
+down()
+begin_fill()
+forward(1000)
+right(120)
+forward(1000)
+end_fill()
+up()
+goto(-300, -200)
+down()
+left(110)
+begin_fill()
+forward(600)
+right(110)
+forward(1000)
+end_fill()
+left(60)
+backward(700)
+begin_fill()
+left(55)
+forward(800)
+right(115)
+forward(800)
+end_fill()
+left(240)
+
+#le premier type d'arbres
+def arbre1():
+    w = random.randint(-200, 200)
+    r = random.randint(-400, 0)
+    up()
+    goto(w, r)
+    down()
+    color('saddlebrown')
+    fillcolor('saddlebrown')
+    begin_fill()
+    left(80)
+    forward(5)
+    left(10)
+    forward(20)
+    right(90)
+    forward(7)
+    right(90)
+    forward(20)
+    left(10)
+    forward(5)
+    end_fill()
+    up()
+    left(170)
+    forward(25)
+    right(90)
+    forward(5)
+    dot(15, 'darkgreen')
+    left(130)
+    forward(7)
+    dot(15, 'darkgreen')
+    left(90)
+    forward(10)
+    dot(15, 'darkgreen')
+    right(90)
+    forward(7)
+    dot(15, 'darkgreen')
+    right(90)
+    forward(5)
+    dot(15, 'darkgreen')
+    right(40)
+    
+#2eme arbre   
+def arbre2():
+    
+    n = random.randint(-200, 200)
+
+    m = random.randint(-400, 0) 
+    up()
+    goto(n, m)
+    down()
+    color('sienna')
+    fillcolor('sienna')
+    begin_fill()
+    forward(5)
+    left(90)
+    forward(15)
+    left(90)
+    forward(5)
+    left(90)
+    forward(15)
+    end_fill()
+    backward(15)
+    left(90)
+    forward(5)
+    color('forestgreen')
+    fillcolor('forestgreen')
+    left(90)
+    forward(33.5)
+    left(180)
+    begin_fill()
+    forward(33.5)
+    left(90)
+    forward(10)
+    end_fill()
+    right(180)
+    forward(20)
+    left(180)
+    begin_fill()
+    forward(10)
+    left(90)
+    forward(33.5)
+    end_fill()
+    backward(16.75)
+    forward(33.5)
+    left(180)
+    begin_fill()
+    forward(33.5)
+    left(90)
+    forward(10)
+    end_fill()
+    right(180)
+    forward(20)
+    left(180)
+    begin_fill()
+    forward(10)
+    left(90)
+    forward(33.5)
+    end_fill()
+    right(90)   
+    
+#Nuages
+def nuages1():
+    c = random.randint(-500, 500)
+
+    v = random.randint(350, 400)
+    up()
+    goto(c, v)
+    dot(45, 'darkgrey')
+    right(90)
+    forward(10)
+    left(90)
+    forward(10)
+    dot(45, 'darkgrey')
+    forward(20)
+    dot(45, 'darkgrey')
+    forward(20)
+    dot(45, 'darkgrey')
+    left(90)
+    forward(10)
+    right(90)
+    forward(10)
+    dot(45, 'darkgrey')
+    backward(50)
+
+    dot(30, 'dimgrey')
+    forward(20)
+    dot(30, 'dimgrey')
+    forward(20)
+    dot(30, 'dimgrey')
+    right(90)
+    forward(10)
+    right(90)
+    forward(10)
+    dot(30, 'dimgrey')
+    forward(20)
+    dot(30, 'dimgrey')
+    left(180)
+    
+def nuages2():
+    c = random.randint(-600, 700)
+
+    v = random.randint(350, 400)
+    up()
+    goto(c, v)
+    dot(45, 'dimgrey')
+    right(90)
+    forward(10)
+    left(90)
+    forward(10)
+    dot(45, 'dimgrey')
+    forward(20)
+    dot(45, 'dimgrey')
+    forward(20)
+    dot(45, 'dimgrey')
+    left(90)
+    forward(10)
+    right(90)
+    forward(10)
+    dot(45, 'dimgrey')
+    backward(50)
+
+    dot(30, 'dimgrey')
+    forward(20)
+    dot(30, 'dimgrey')
+    forward(20)
+    dot(30, 'dimgrey')
+    right(90)
+    forward(10)
+    right(90)
+    forward(10)
+    dot(30, 'dimgrey')
+    forward(20)
+    dot(30, 'dimgrey') 
+    left(180)   
+
+#le temps d'aujourdhui?
+print("Le temps sera t-il: ensoleillé, nuageux orageux ?")
+weather = input()
+
+if weather == "nuageux":
+    for i in range (15):
+        nuages1()
+    
+    
+    
+elif weather == "orageux":  #même chose mais avec nuages sombres.
+    for i in range (25):
+        nuages2()
+        
+        
+else:   
+    print("Il n'y a pas de nuages aujourd'hui")
+
+
+
+
+print("Combien de chalets seront sur la montagne ?")
+nbmaison = int(input())
+
+
+def maison():
+    x = random.randint(-200, 200)
+    y = random.randint(-400, 0)
+    s = -(y/10)*1.15
+    up()
+    goto(x, y)               
+    down()
+    width(1)
+    color('black')
+    fillcolor('silver')
+    begin_fill()
+    forward(1.41*s)
+    left(90)
+    forward(s)
+    left(90)
+    forward(1.41*s)
+    left(90)
+    forward(s)
+    end_fill()
+    forward(-s)
+    fillcolor('saddlebrown')
+    begin_fill()
+    width(4)
+    left(135)
+    forward(s)
+    right(90)
+    forward(s)
+    end_fill()
+    left(45)
+    
+left(180)
+for i in range(nbmaison):
+    maison()
+
+print("Combien d'arbres seront sur la montagne ?")
+nbarbres = int(input())
+
+for i in range (int(nbarbres/2)):
+   arbre1()
+
+for i in range (int(nbarbres/2)):
+    arbre2()
+
+exitonclick()
