@@ -1,53 +1,31 @@
-from turtle import *
-import random
+import turtle
 
-color('sienna')
-fillcolor('sienna')
-begin_fill()
-forward(5)
-left(90)
-forward(15)
-left(90)
-forward(5)
-left(90)
-forward(15)
-end_fill()
-backward(15)
-left(90)
-forward(5)
-color('forestgreen')
-fillcolor('forestgreen')
-left(90)
-forward(33.5)
-left(180)
-begin_fill()
-forward(33.5)
-left(90)
-forward(10)
-end_fill()
-right(180)
-forward(20)
-left(180)
-begin_fill()
-forward(10)
-left(90)
-forward(33.5)
-end_fill()
-backward(16.75)
-forward(33.5)
-left(180)
-begin_fill()
-forward(33.5)
-left(90)
-forward(10)
-end_fill()
-right(180)
-forward(20)
-left(180)
-begin_fill()
-forward(10)
-left(90)
-forward(33.5)
-end_fill()
+# Set up the screen
+screen = turtle.Screen()
+screen.bgcolor("skyblue")  # Set the background color
+
+# Create a turtle object
+cloud_turtle = turtle.Turtle()
+cloud_turtle.speed(0)  # Set the drawing speed (0 is fastest)
+
+# Function to draw a cloud
+def draw_cloud(radius, x, y):
+    cloud_turtle.penup()
+    cloud_turtle.goto(x, y - radius)
+    cloud_turtle.pendown()
+    cloud_turtle.begin_fill()
+    cloud_turtle.fillcolor("white")
+    cloud_turtle.circle(radius)
+    cloud_turtle.end_fill()
+
+# Draw a big cloud
+draw_cloud(40, -50, 100)
+draw_cloud(60, 20, 120)
+draw_cloud(45, -30, 150)
+
+# Close the turtle graphics window when clicked
+screen.exitonclick()
+
+
     
 exitonclick()

@@ -1,0 +1,19 @@
+from turtle import*
+import random, time
+
+color('white')
+fillcolor('white')
+bgcolor('sky blue')
+pensize(2)
+speed(100)
+up()
+
+def demicercle (size):
+    down()
+    for i in range (0, 20):
+        forward(size)
+        left(9)
+        
+demicercle(5)
+
+exitonclick()

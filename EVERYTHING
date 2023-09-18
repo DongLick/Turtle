@@ -226,7 +226,7 @@ def nuages2():
     left(180)   
 
 #le temps d'aujourdhui?
-print("Le temps sera t-il: ensoleillé, nuageux orageux ?")
+print("Le temps sera t-il: ensoleillé, nuageux ou orageux ?")
 weather = input()
 
 if weather == "nuageux":

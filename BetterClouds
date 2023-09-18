@@ -1,0 +1,56 @@
+from turtle import*
+import random
+import time
+
+bgcolor('skyblue')
+color('white')
+fillcolor('white')
+begin_fill()
+nuagefini = False
+
+def demicercle(size):
+    down()
+    for i in range (0, 20):
+        forward(size)
+        left(9)
+left(180)
+
+def ajustRotation():
+    heading = heading()
+    randRotation = random.randint(1,10)
+    if heading >= 50 and heading <= 140:
+        left(randRotation*2)
+    if heading > 140 and heading <= 220:
+        left(randRotation*10)
+    if heading > 220 and heading <=270:
+        left(randRotation*2)
+    if heading > 270 and heading < 50:
+        left(randRotation)
+        
+# for i in range(0, 25):
+#     demicercle(5)
+#     ajustRotation()
+        
+def homeCheck():
+    global nuagefini
+    if xcor() > 0:
+        # distance = distance(0, 0)
+        setheading(0)
+        left(towards(0, 0))
+        forward(distance/2)
+        dot(distance)
+        end_fill()
+        nuagefini = True
+        
+def nuage():
+    left(50)
+    global nuagefini
+    nuagefini = False
+    begin_fill()
+    for i in range(0, 5):
+        size = random.randint(3, 7)
+        demicercle(size)
+        
+nuage()
+        
+exitonclick()
