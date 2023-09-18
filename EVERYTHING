@@ -5,9 +5,9 @@ screensize(canvwidth=600, canvheight=400, bg='lightblue')
 
 speed(90)
 
-#le soleil                              #CHOSES A REGLER: 
-up()                                                     #-arbres: deuxieme type d'arbre + randomisation + definition
-goto(600, 400)                                           #-nuages: randomisation
+#le soleil               
+up()                     
+goto(600, 400)           
 dot(70, 'yellow')
 right(180)
 down()
@@ -19,7 +19,6 @@ for i in range(36):
     left(10)
 
 #montagnes
-
 up()
 goto(-700, -500)
 right(120)
@@ -55,6 +54,7 @@ left(240)
 def arbre1():
     w = random.randint(-200, 200)
     r = random.randint(-400, 0)
+    
     up()
     goto(w, r)
     down()
@@ -94,10 +94,9 @@ def arbre1():
     
 #2eme arbre   
 def arbre2():
-    
     n = random.randint(-200, 200)
-
     m = random.randint(-400, 0) 
+
     up()
     goto(n, m)
     down()
@@ -154,8 +153,8 @@ def arbre2():
 #Nuages
 def nuages1():
     c = random.randint(-500, 500)
-
     v = random.randint(350, 400)
+
     up()
     goto(c, v)
     dot(45, 'darkgrey')
@@ -191,8 +190,8 @@ def nuages1():
     
 def nuages2():
     c = random.randint(-600, 700)
-
     v = random.randint(350, 400)
+
     up()
     goto(c, v)
     dot(45, 'dimgrey')
@@ -233,28 +232,20 @@ weather = input()
 if weather == "nuageux":
     for i in range (15):
         nuages1()
-    
-    
-    
 elif weather == "orageux":  #même chose mais avec nuages sombres.
     for i in range (25):
         nuages2()
-        
-        
 else:   
     print("Il n'y a pas de nuages aujourd'hui")
 
-
-
-
 print("Combien de chalets seront sur la montagne ?")
 nbmaison = int(input())
-
 
 def maison():
     x = random.randint(-200, 200)
     y = random.randint(-400, 0)
     s = -(y/10)*1.15
+
     up()
     goto(x, y)               
     down()
