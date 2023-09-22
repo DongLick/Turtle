@@ -2,9 +2,10 @@ from turtle import*
 import random
 
 screensize(canvwidth=600, canvheight=400, bg='lightblue')
-
-speed(90)
-
+                                                    #je voulais juste avoir votre avis sur le programme j'usqu'ici en prennant
+                                                    #en compte le fait que je n'ai pas fini les ,aisons et que je suis entrain 
+                                                    #d'écrire un programme rien que pour la génération des nuages.
+speed(100)
 #le soleil               
 up()                     
 goto(600, 400)           
@@ -23,8 +24,8 @@ up()
 goto(-700, -500)
 right(120)
 width(7)
-color('dimgray')
-fillcolor('dimgray')
+color('gainsboro')
+fillcolor('gainsboro')
 down()
 begin_fill()
 forward(1000)
@@ -152,78 +153,187 @@ def arbre2():
     
 #Nuages
 def nuages1():
-    c = random.randint(-500, 500)
-    v = random.randint(350, 400)
+    color('silver')
+    fillcolor('silver')
+    bgcolor('skyblue')
+    pensize(2)
+    speed(100)
+    penup()
+    cloudDone = False
 
-    up()
-    goto(c, v)
-    dot(45, 'darkgrey')
-    right(90)
-    forward(10)
-    left(90)
-    forward(10)
-    dot(45, 'darkgrey')
-    forward(20)
-    dot(45, 'darkgrey')
-    forward(20)
-    dot(45, 'darkgrey')
-    left(90)
-    forward(10)
-    right(90)
-    forward(10)
-    dot(45, 'darkgrey')
-    backward(50)
+    def semiCircle(size, arc):
+        pendown()
+        for i in range(0, arc):
+            forward(size)
+            left(9)
 
-    dot(30, 'dimgrey')
-    forward(20)
-    dot(30, 'dimgrey')
-    forward(20)
-    dot(30, 'dimgrey')
-    right(90)
-    forward(10)
-    right(90)
-    forward(10)
-    dot(30, 'dimgrey')
-    forward(20)
-    dot(30, 'dimgrey')
-    left(180)
-    
+    def homeCheck(x, y):
+        global cloudDone
+        if ycor() < y or ycor() < y :
+            goto(x, y)
+            end_fill()
+            cloudDone = True
+
+    def adjustTurn():
+        randTurn = random.randint(160, 270)
+        if heading() >= 360 or heading() <= 180:
+            left(random.randint(45, 225))
+            
+        left(randTurn)
+        # if hdng >= 0 and hdng <= 90:
+        #     left(randTurn * randint(9, 11))
+        # if hdng > 90 and hdng <= 180:
+        #     left(randTurn * randint(2, 3))
+        # if hdng > 180 and hdng <=270:
+        #     left(randTurn * randint(2, 4))
+        # if hdng > 270 and hdng < 0:
+        #     left(randTurn * randint(3, 5))
+
+    def cloud(x, y):
+        up()
+        goto(x, y)
+        setheading(random.randint(-30, 30))
+        down()
+        global cloudDone
+        cloudDone = False
+        begin_fill()
+        while cloudDone == False:
+            size = random.randint(2, 11)
+            semiCircle(size, random.randint(19, 21))
+            adjustTurn()
+            homeCheck(x, y)
+
+    cloud(0, 0)
+    for i in range(0, 10):
+         c = random.randint(-600, 700)
+         v = random.randint(350, 400)
+        
+    cloud(x, y)
+
+#     up()
+#     goto(c, v)
+#     dot(45, 'darkgrey')
+#     right(90)
+#     forward(10)
+#     left(90)
+#     forward(10)
+#     dot(45, 'darkgrey')
+#     forward(20)
+#     dot(45, 'darkgrey')
+#     forward(20)
+#     dot(45, 'darkgrey')
+#     left(90)
+#     forward(10)
+#     right(90)
+#     forward(10)
+#     dot(45, 'darkgrey')
+#     backward(50)
+
+#     dot(30, 'dimgrey')
+#     forward(20)
+#     dot(30, 'dimgrey')
+#     forward(20)
+#     dot(30, 'dimgrey')
+#     right(90)
+#     forward(10)
+#     right(90)
+#     forward(10)
+#     dot(30, 'dimgrey')
+#     forward(20)
+#     dot(30, 'dimgrey')
+#     left(180)
+
 def nuages2():
-    c = random.randint(-600, 700)
-    v = random.randint(350, 400)
+    color('silver')
+    fillcolor('silver')
+    bgcolor('skyblue')
+    pensize(2)
+    speed(100)
+    penup()
+    cloudDone = False
 
-    up()
-    goto(c, v)
-    dot(45, 'dimgrey')
-    right(90)
-    forward(10)
-    left(90)
-    forward(10)
-    dot(45, 'dimgrey')
-    forward(20)
-    dot(45, 'dimgrey')
-    forward(20)
-    dot(45, 'dimgrey')
-    left(90)
-    forward(10)
-    right(90)
-    forward(10)
-    dot(45, 'dimgrey')
-    backward(50)
+    def semiCircle(size, arc):
+        pendown()
+        for i in range(0, arc):
+            forward(size)
+            left(9)
 
-    dot(30, 'dimgrey')
-    forward(20)
-    dot(30, 'dimgrey')
-    forward(20)
-    dot(30, 'dimgrey')
-    right(90)
-    forward(10)
-    right(90)
-    forward(10)
-    dot(30, 'dimgrey')
-    forward(20)
-    dot(30, 'dimgrey') 
-    left(180)   
+    def homeCheck(x, y):
+        global cloudDone
+        if ycor() < y or ycor() < y :
+            goto(x, y)
+            end_fill()
+            cloudDone = True
+
+    def adjustTurn():
+        randTurn = random.randint(160, 270)
+        if heading() >= 360 or heading() <= 180:
+            left(random.randint(45, 225))
+            
+        left(randTurn)
+        # if hdng >= 0 and hdng <= 90:
+        #     left(randTurn * randint(9, 11))
+        # if hdng > 90 and hdng <= 180:
+        #     left(randTurn * randint(2, 3))
+        # if hdng > 180 and hdng <=270:
+        #     left(randTurn * randint(2, 4))
+        # if hdng > 270 and hdng < 0:
+        #     left(randTurn * randint(3, 5))
+
+    def cloud(x, y):
+        up()
+        goto(x, y)
+        setheading(random.randint(-30, 30))
+        down()
+        global cloudDone
+        cloudDone = False
+        begin_fill()
+        while cloudDone == False:
+            size = random.randint(2, 11)
+            semiCircle(size, random.randint(19, 21))
+            adjustTurn()
+            homeCheck(x, y)
+
+    cloud(0, 0)
+    for i in range(0, 10):
+         c = random.randint(-600, 700)
+         v = random.randint(350, 400)
+        
+    cloud(x, y)
+   
+
+#     up()
+#     goto(c, v)
+#     dot(45, 'dimgrey')
+#     right(90)
+#     forward(10)
+#     left(90)
+#     forward(10)
+#     dot(45, 'dimgrey')
+#     forward(20)
+#     dot(45, 'dimgrey')
+#     forward(20)
+#     dot(45, 'dimgrey')
+#     left(90)
+#     forward(10)
+#     right(90)
+#     forward(10)
+#     dot(45, 'dimgrey')
+#     backward(50)
+
+#     dot(30, 'dimgrey')
+#     forward(20)
+#     dot(30, 'dimgrey')
+#     forward(20)
+#     dot(30, 'dimgrey')
+#     right(90)
+#     forward(10)
+#     right(90)
+#     forward(10)
+#     dot(30, 'dimgrey')
+#     forward(20)
+#     dot(30, 'dimgrey') 
+#     left(180)   
 
 #le temps d'aujourdhui?
 print("Le temps sera t-il: ensoleillé, nuageux ou orageux ?")
