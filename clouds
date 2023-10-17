@@ -1,0 +1,38 @@
+from turtle import*
+bgcolor('skyblue')
+
+
+def nuage1():
+    up()
+    for i in range (8):
+        dot(40, 'white')
+        forward(25)
+    left(90)
+    forward(20)  
+    left(90)
+    for i in range (10):
+        dot(40, 'white')
+        forward(25)  
+    right(90)
+    forward(20)
+    right(90) 
+    forward(50)
+    for i in range (8):
+        dot(40, 'white')
+        forward(25) 
+        
+    left(90)
+    forward(20)
+    left(90)
+    forward(50)    
+    for i in range (6):
+        dot(40, 'white')
+        forward(25)  
+    left(90)
+    forward(50)
+    left(90)  
+    for i in range (8):
+        dot(40, 'silver')
+        forward(25)            
+nuage1()
+exitonclick()
